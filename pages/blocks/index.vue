@@ -139,7 +139,7 @@ onUnmounted(() => {
           type="text"
           id="simple-search"
           class="block w-full p-4 text-sm text-white border rounded-l-lg ps-10 focus:ring-blue-500 focus:border-secondary"
-          placeholder="Search by Blocks Hash..."
+          placeholder="Search by Block Height..."
           required
           v-model="searchValue"
           @keyup.enter="searchByBlockHeight"

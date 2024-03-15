@@ -85,9 +85,10 @@ const globalSearch = () => {
         />
       </form> -->
       <!-- @keyup.enter="globalSearch" -->
-      <form class="relative ml-12 mr-8 hidden basis-3/12 lg:block xl:ml-[8%]">
+      <div class="relative ml-12 mr-8 hidden basis-3/12 lg:block xl:ml-[8%]">
         <input type="search"
           v-model="searchValue"
+          @keyup.enter="globalSearch"
           class="w-full rounded-2xl border border-[#323659] py-[0.6875rem] px-4 pl-10 focus:ring-accent dark:border-transparent bg-white/[.15] text-white placeholder-white"
           placeholder="Global Search"><span
           class="absolute top-0 left-0 flex items-center justify-center w-12 h-full rounded-2xl">
@@ -100,7 +101,7 @@ const globalSearch = () => {
             </path>
           </svg>
         </span>
-      </form>
+      </div>
       <div
         class="fixed inset-0 z-10 items-center invisible ml-auto bg-white opacity-0 js-mobile-menu lg:visible rtl:mr-auto rtl:ml-0 dark:bg-jacarta-800 lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent">
         <div
