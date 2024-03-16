@@ -97,7 +97,7 @@ const globalSearch = () => {
       <ClientOnly>
         <DropdownMenu>
           <DropdownMenuTrigger class="text-white">
-            <NuxtImg src="https://miro.medium.com/v2/resize:fit:834/1*0o92onrSIZZppmp-7wW8Ew.png" class="w-10" />
+            <img src="https://miro.medium.com/v2/resize:fit:834/1*0o92onrSIZZppmp-7wW8Ew.png" class="w-10" />
           </DropdownMenuTrigger>
           <DropdownMenuContent class="bg-secondary border-[#868bb6] shadow-md ml-10 mt-2">
             <DropdownMenuLabel>
