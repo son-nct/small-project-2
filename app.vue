@@ -8,7 +8,7 @@
 
 <style lang="scss">
 .page-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .page-leave-active {
@@ -17,7 +17,8 @@
 
 .page-enter-from,
 .page-leave-to {
-  transform: translateY(20px);
+  transform: translateX(30px);
   opacity: 0;
 }
+
 </style>

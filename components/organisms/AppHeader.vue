@@ -4,6 +4,15 @@ import { useRouter } from "vue-router";
 import AppSideBarMobile from "./AppSideBarMobile.vue";
 import { useHead } from "#imports";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import { Input } from "@/components/ui/input";
 
 const searchValue = ref("");
@@ -85,16 +94,32 @@ const globalSearch = () => {
         />
       </form> -->
       <!-- @keyup.enter="globalSearch" -->
+      <ClientOnly>
+        <DropdownMenu>
+          <DropdownMenuTrigger class="text-white">
+            <NuxtImg src="https://miro.medium.com/v2/resize:fit:834/1*0o92onrSIZZppmp-7wW8Ew.png" class="w-10" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent class="bg-secondary border-[#868bb6] shadow-md ml-10 mt-2">
+            <DropdownMenuLabel>
+              <h5 class="text-xl text-left text-white">
+                shielded-expedition.88f17d1d14
+              </h5>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <a class='block w-full text-lg text-left text-yellow-500' href="https://namada-rpc.validatorvn.com"
+              target="_blank">https://namada-rpc.validatorvn.com</a>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </ClientOnly>
       <div class="relative ml-12 mr-8 hidden basis-3/12 lg:block xl:ml-[8%]">
-        <input type="search"
-          v-model="searchValue"
-          @keyup.enter="globalSearch"
+        <input type="search" v-model="searchValue" @keyup.enter="globalSearch"
           class="w-full rounded-2xl border border-[#323659] py-[0.6875rem] px-4 pl-10 focus:ring-accent dark:border-transparent bg-white/[.15] text-white placeholder-white"
-          placeholder="Global Search"><span
+          placeholder="Global Search" /><span
           class="absolute top-0 left-0 flex items-center justify-center w-12 h-full rounded-2xl">
-          <svg
-            @click="globalSearch"
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="w-4 h-4 fill-white">
+          <svg @click="globalSearch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+            class="w-4 h-4 fill-white">
             <path fill="none" d="M0 0h24v24H0z"></path>
             <path
               d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z">

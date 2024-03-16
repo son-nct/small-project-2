@@ -128,7 +128,7 @@ main
                       .w-4.h-4.rounded-xs.bg-red-500
                       p.text-white Missed Block
           .container(v-if='!validator')
-            h5.text-primary.text-center.text-3xl No Data Found
+            h5.text-secondary.text-center.text-3xl No Data Found
 
 </template>
 

@@ -5,6 +5,8 @@ import { useRoute } from "vue-router";
 import { Loader2 } from "lucide-vue-next";
 import ShieldedHeader from "~/components/molecules/ShieldedHeader.vue";
 
+import { ScrollArea } from '@/components/ui/scroll-area'
+
 import {
   Table,
   TableBody,
@@ -122,32 +124,38 @@ const formatString = (input: string): string => {
           </template>
         </div>
       </div>
+      <div class="container text-center text-secondary fond-bold" v-if="!block">
+        <h5 class="text-3xl text-center text-secondary">No Data Found</h5>
+      </div>
     </div>
-    <div class="py-24 text-center">
+    <div class="py-24 text-center" v-if="isExistHashData">
       <h1 class="mb-6 text-5xl text-white font-display lg:text-6xl xl:text-7xl">
         Transactions
       </h1>
       <ClientOnly>
-        
+
       </ClientOnly>
-      <table class="w-full text-sm text-left text-white lg:rounded-2xl bg-[#363a5d]" v-if='isExistHashData'>
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-          <tr>
-            <th class="px-6 py-3" v-for="text in header" :key="text" scope="col">{{ text }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for='(block, index) in block.tx_hashes' :key="block.hash_id"
-            class="bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:cursor-pointer">
-            <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row"><span>{{ index + 1 }}</span>
-            </th>
-            <td class="px-6 py-4"><span>{{ block.tx_type }}</span></td>
-            <td class="px-6 py-4">
-              <NuxtLink :to='navigateToTransactionDetail(block.hash_id)' class="text-green-500">{{ block.hash_id }}</NuxtLink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <ScrollArea class="w-full rounded-md h-[500px]">
+        <table class="w-full text-sm text-left text-white lg:rounded-2xl bg-[#363a5d]" v-if='isExistHashData'>
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th class="px-6 py-3" v-for="text in header" :key="text" scope="col">{{ text }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for='(block, index) in block.tx_hashes' :key="block.hash_id"
+              class="bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:cursor-pointer">
+              <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row"><span>{{ index + 1 }}</span>
+              </th>
+              <td class="px-6 py-4"><span>{{ block.tx_type }}</span></td>
+              <td class="px-6 py-4">
+                <NuxtLink :to='navigateToTransactionDetail(block.hash_id)' class="text-green-500">{{ block.hash_id }}
+                </NuxtLink>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ScrollArea>
 
     </div>
   </div>

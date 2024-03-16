@@ -7,7 +7,7 @@ import ShieldedHeader from "~/components/molecules/ShieldedHeader.vue";
 
 <template lang="pug">
 div
-  NuxtLoadingIndicator
+  NuxtLoadingIndicator(color='#7252d6')
   AppHeader
   shielded-header
   slot

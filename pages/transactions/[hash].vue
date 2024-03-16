@@ -111,6 +111,8 @@ main
                     h1.mb-6.text-5xl.text-white.font-display(class='lg:text-6xl xl:text-7xl')
                       | Transaction Detail
                   .p-6.border.rounded-t-lg.rounded-b-lg(class='bg-[#13163f] border-[#323659] md:p-10')
+                    .container.text-center.text-secondary.fond-bold(v-if='!transactionDetail')
+                      h5.text-3xl.text-center.text-secondary No Data Found
                     .grid.grid-cols-1.gap-5
                       .flex.items-center.mb-2(v-for='(value, key) in transactionDetail')
                         template(v-if="key === 'time'")
