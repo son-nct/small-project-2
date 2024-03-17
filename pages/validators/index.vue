@@ -176,24 +176,24 @@ main
                     th.px-6.py-3(v-for='text in header' :key='text' scope='col')
                       | {{ text }}
                 tbody
-                  tr(v-for='(validator, index) in validatorStore.validatorPagination' :key='index' class='bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:cursor-pointer')
+                  tr(v-for='(validator, index) in validatorStore.validatorPagination' :key='index' class='bg-[#13163f] hover:bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:cursor-pointer')
                     th.px-6.py-4.font-medium.text-gray-900.whitespace-nowrap(scope='row')
                       span
                         | {{ validatorStore.currentPage * validatorStore.pageSize +  index +  1 - validatorStore.pageSize       }}
                         
                        
                 
-                    td.px-6.py-4.text-green-500
-                      NuxtLink(:to='navigateToAddress(validator.address)') {{ validator.address }}
-                    td.px-6.py-4
+                    td(class='hover:bg-secondary group').px-6.py-4.text-green-500
+                      NuxtLink(:to='navigateToAddress(validator.address)' class="text-green-500 group-hover:text-white") {{ validator.address }}
+                    td(class='hover:bg-secondary group').px-6.py-4
                       span {{ validator.moniker}}
-                    td.px-6.py-4
+                    td(class='hover:bg-secondary group').px-6.py-4
                       span {{ validator.uptime }}
-                    td.px-6.py-4
+                    td(class='hover:bg-secondary group').px-6.py-4
                       span {{ validator.voting_power }}
-                    td.px-6.py-4
+                    td(class='hover:bg-secondary group').px-6.py-4
                       span {{ validator.commitSignature }}
-                    td.px-6.py-4
+                    td(class='hover:bg-secondary group').px-6.py-4
                       span {{ validator.voting_percentage }}%
               p.my-2.text-center.text-white
                 | {{ ((validatorStore.currentPage - 1) * validatorStore.pageSize) + 1 }} - {{ validatorStore.currentPage * validatorStore.pageSize }} of {{ validatorStore.totalData }}

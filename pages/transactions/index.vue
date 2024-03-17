@@ -162,23 +162,23 @@ main
                       th.px-6.py-3(v-for='text in header' :key='text' scope='col')
                         | {{ text }}
                   tbody
-                    tr(v-for='(transaction,index) in transactionStore.latestTransaction' :key='transaction.tx' class='bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:cursor-pointer')
+                    tr(v-for='(transaction,index) in transactionStore.latestTransaction' :key='transaction.tx' class='bg-[#13163f] hover:bg-[#13163f] border-b-[0.5px] !border-slate-500/50')
                       th.px-6.py-4.font-medium.text-gray-900.whitespace-nowrap(scope='row')
                         span {{ (transactionStore.currentPage * transactionStore.pageSize) + index + 1 - transactionStore.pageSize }}
-                      td.px-6.py-4
-                        NuxtLink(:to='navigateToTransactionDetail(transaction.tx)' class='text-green-500') {{ trunCateText(transaction.tx) }}
-                      td.px-6.py-4
-                        NuxtLink(:to='navigateToBlockDetail(transaction.height)' class='text-green-500') {{ transaction.height }}
-                      td.px-6.py-4
+                      td.px-6.py-4(class='hover:bg-secondary group')
+                        NuxtLink(:to='navigateToTransactionDetail(transaction.tx)' class='text-green-500 group-hover:text-white') {{ trunCateText(transaction.tx) }}
+                      td.px-6.py-4(class='hover:bg-secondary group')
+                        NuxtLink(:to='navigateToBlockDetail(transaction.height)' class='text-green-500 group-hover:text-white') {{ transaction.height }}
+                      td.px-6.py-4(class='hover:bg-secondary group')
                         span {{ transaction.type }}
-                      td.px-6.py-4
+                      td.px-6.py-4(class='hover:bg-secondary group')
                         span {{ transaction.shielded }}
-                      td.px-6.py-4
+                      td.px-6.py-4(class='hover:bg-secondary group')
                         span(v-if='transaction.status === "Fail"').border-red-500.text-red-500
                           | {{ transaction.status }}
                         span(v-else).border-green-500.text-green-500
                           | {{ transaction.status }}
-                      td.px-6.py-4
+                      td.px-6.py-4(class='hover:bg-secondary group')
                         span  {{ transaction.time }}
                 
               .w-full.flex.justify-center(v-if='hasTransactionData')

@@ -181,7 +181,7 @@ onUnmounted(() => {
           <tbody>
             <tr
               v-for="(block, index) in blockStore.latestBlocks"
-              class="bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:cursor-pointer"
+              class="bg-[#13163f] border-b-[0.5px] !border-slate-500/50 hover:bg-[#13163f]"
             >
               <th
                 scope="row"
@@ -197,31 +197,31 @@ onUnmounted(() => {
                 </span>
               </th>
 
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 hover:bg-secondary group hover:cursor-pointer">
                 <NuxtLink
-                  class="text-green-600"
+                  class="text-green-600 group-hover:text-white"
                   :to="navigateToBlockDetail(block.height)"
                   >{{ block.height }}</NuxtLink
                 >
               </td>
 
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 hover:bg-secondary group">
                 {{ trunCateText(block.hash) }}
               </td>
 
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 hover:bg-secondary group">
                 {{ block.txs }}
               </td>
 
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 hover:bg-secondary group">
                 <NuxtLink
-                  class="text-green-600"
-                  :to="navigateToBlockDetail(block.height)"
+                  class="text-green-600 group-hover:text-white hover:cursor-pointer"
+                  :to="navigateToValidatorDetail(block.proposer)"
                   >{{ block.proposer }}</NuxtLink
                 >
               </td>
 
-              <td class="px-6 py-4">
+              <td class="px-6 py-4 hover:bg-secondary group">
                 {{ block.time }}
               </td>
             </tr>
